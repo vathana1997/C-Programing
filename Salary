@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    float salary;
+
+    printf("Enter number of employees: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        printf("Enter salary of employee %d: ", i);
+        scanf("%f", &salary);
+        printf("Salary Slip - Employee %d : %.2f\n", i, salary);
+    }
+
+    return 0;
+}
