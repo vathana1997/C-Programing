@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    float price, quantity, total = 0;
+    
+    printf("Enter number of items: ");
+    scanf("%d", &n);
+    
+    for(i = 1; i <= n; i++) {
+        printf("Item %d - Enter price: ", i);
+        while(scanf("%f", &price) != 1) {  // Validate input
+            printf("Invalid price. Try again: ");
+            while(getchar() != '\n');  // Clear buffer
+        }
+        printf("Item %d - Enter quantity: ", i);
+        while(scanf("%f", &quantity) != 1) {
+            printf("Invalid quantity. Try again: ");
+            while(getchar() != '\n');
+        }
+        
+        total += price * quantity;
+    }
+    
+    printf("\nTotal bill amount: Rs. %.2f\n", total);
+    
+    return 0;
+}
