@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int totalDays, weekends, workingDays;
+
+    printf("Enter total days in month: ");
+    scanf("%d", &totalDays);
+
+    weekends = (totalDays / 7) * 2;
+    workingDays = totalDays - weekends;
+
+    printf("Working days = %d", workingDays);
+
+    return 0;
+}
