@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+// Define structure for bus ticket
+struct BusTicket {
+    int ticketNo;
+    char passengerName[50];
+    char source[50];
+    char destination[50];
+    float fare;
+};
+
+int main() {
+    int n, i;
+
+    printf("Enter number of tickets: ");
+    scanf("%d", &n);
+
+    struct BusTicket tickets[n];  // Array of structures
+
+    // Input ticket details
+    for (i = 0; i < n; i++) {
+        printf("\nEnter details of ticket %d:\n", i + 1);
+        printf("Ticket Number: ");
+        scanf("%d", &tickets[i].ticketNo);
+        printf("Passenger Name: ");
+        scanf("%s", tickets[i].passengerName);
+        printf("Source: ");
+        scanf("%s", tickets[i].source);
+        printf("Destination: ");
+        scanf("%s", tickets[i].destination);
+        printf("Fare: ");
+        scanf("%f", &tickets[i].fare);
+    }
+
+    // Display ticket details
+    printf("\n--- Bus Ticket Details ---\n");
+    for (i = 0; i < n; i++) {
+        printf("Ticket %d:\n", i + 1);
+        printf("Ticket No: %d\n", tickets[i].ticketNo);
+        printf("Passenger Name: %s\n", tickets[i].passengerName);
+        printf("Source: %s\n", tickets[i].source);
+        printf("Destination: %s\n", tickets[i].destination);
+        printf("Fare: %.2f\n", tickets[i].fare);
+        printf("--------------------------\n");
+    }
+
+    return 0;
+}
