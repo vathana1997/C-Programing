@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define structure for inventory item
+struct Item {
+    int itemID;
+    char name[50];
+    float price;
+    int quantity;
+};
+
+int main() {
+    struct Item inventory[100];  // Array of items
+    int n = 0; 
