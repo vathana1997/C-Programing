@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+struct Record {
+    int id;
+    char name[50];
+};
+
+int main() {
+    int n, i, updateID;
+    printf("Enter number of records: ");
+    scanf("%d", &n);
+
+    struct Record records[n];
+    for (i = 0; i < n; i++) {
+        printf("Enter ID and Name for record %d: ", i+1);
+        scanf("%d %s", &records[i].id, records[i].name);
+    }
+
+    printf("Enter ID to update: ");
+    scanf("%d", &updateID);
+
+    for (i = 0; i < n; i++) {
+        if (records[i].id == updateID) {
+            printf("Enter new name: ");
+            scanf("%s", records[i].name);
+            printf("Updated: ID=%d, Name=%s\n", records[i].id, records[i].name);
+            return 
