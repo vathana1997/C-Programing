@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+// Function to display menu
+void displayMenu() {
+    printf("\n===== MENU =====\n");
+    printf("1. Add\n");
+    printf("2. Subtract\n");
+    printf("3. Multiply\n");
+    printf("4. Divide\n");
+    printf("5. Exit\n");
+    printf("================\n");
+}
+
+int main() {
+    int choice;
+
+    // Call the function to show menu
+    displayMenu();
+
+    // Ask user for choice
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    // Perform action based on choice
+    switch(choice) {
+        case 1:
+            printf("You selected Addition.\n");
+            break;
+        case 2:
+            printf("You selected Subtraction.\n");
+            break;
+        case 3:
+            printf("You selected Multiplication.\n");
+            break;
+        case 4:
+            printf("You selected Division.\n");
+            break;
+        case 5:
+            printf("Exiting program...\n");
+            break;
+        default:
+            printf("Invalid choice!\n");
+    }
+
+    return 0;
+}
