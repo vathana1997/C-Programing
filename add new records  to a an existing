@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+struct Record {
+    int id;
+    char name[50];
+};
+
+int main() {
+    int n, i, newRecords;
+    printf("Enter number of records: ");
+    scanf("%d", &n);
+
+    struct Record records[100]; // max 100
+    for (i = 0; i < n; i++) {
+        printf("Enter ID and Name for record %d: ", i+1);
+        scanf("%d %s", &records[i].id, records[i].name);
+    }
+
+    printf("How many new records to add? ");
+    scanf("%d", &newRecords);
+
+    for (i = n; i < n + newRecords; i++) {
+        printf("Enter ID and Name for record %d: ", i+1);
+        scanf("%d %s", &records[i].id, records[i].name);
+    }
+
+    printf("\n--- Updated Records ---\n");
+    for (i = 0; i < n + newRecords; i++) {
+        printf("ID=%d, Name=%s\n", records[i].id, records[i].name);
+    }
+
+    return 0;
+}
