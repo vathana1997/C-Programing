@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+// Define structure for course
+struct Course {
+    int courseID;
+    char courseName[50];
+    int duration;   // in months
+    float fees;
+};
+
+int main() {
+    int n, i;
+
+    printf("Enter number of courses: ");
+    scanf("%d", &n);
+
+    struct Course courses[n];  // Array of structures
+
+    // Input course details
+    for (i = 0; i < n; i++) {
+        printf("\nEnter details of course %d:\n", i + 1);
+        printf("Course ID: ");
+        scanf("%d", &courses[i].courseID);
+        printf("Course Name: ");
+        scanf("%s", courses[i].courseName);
+        printf("Duration (in months): ");
+        scanf("%d", &courses[i].duration);
+        printf("Fees: ");
+        scanf("%f", &courses[i].fees);
+    }
+
+    // Display course details
+    printf("\n--- Course Details ---\n");
+    for (i = 0; i < n; i++) {
+        printf("Course %d:\n", i
