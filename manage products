@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+// Define structure for product
+struct Product {
+    int productID;
+    char name[50];
+    float price;
+    int quantity;
+};
+
+// Function to display product details
+void displayProduct(struct Product p) {
+    printf("\n--- Product Details ---\n");
+    printf("Product ID: %d\n", p.productID);
+    printf("Name: %s\n", p.name);
+    printf("Price: %.2f\n", p.price);
+    printf("Quantity: %d\n", p.quantity);
+}
+
+// Function to update product quantity
+void updateQuantity(struct Product *p, int qty) {
+    p->quantity += qty;
+    printf("Updated quantity successfully!\n");
+}
+
+int main() {
+    int n, i, choice, qty;
+    printf("Enter number of products: ");
+    scanf("%d", &n);
+
+    struct Product products[n];
+
+    // Input product details
+    for (i = 0; i < n; i++) {
+        printf("\nEnter details of product %d:\n", i + 1);
+        printf("Product ID: ");
+        scanf("%d", &products[i].productID);
+        printf("Name: ");
+        scanf("%s", products[i].name);
+        printf("Price: ");
+        scanf("%f", &products[i].price);
+        printf("Quantity: ");
+        scanf("%d", &products[i].quantity);
+    }
+
+    // Menu-driven system
+    do {
+        printf("\n--- Product Menu ---\n");
+        printf("1. Display All Products\n");
+        printf("2. Update Product Quantity\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1:
+                for (i = 0; i < n; i++) {
+                    displayProduct(products[i]);
+                }
+                break;
+            case 2:
+                printf("Enter product ID to update: ");
+                int id;
+                scanf("%d", &id);
+                for (i = 0; i < n; i++) {
+                    if (products[i].productID == id) {
+                        printf("Enter quantity to add (use negative to reduce): ");
+                        scanf("%d", &qty);
+                        updateQuantity(&products[i], qty);
+                        break;
+                    }
+                }
+                if (i == n) {
+                    printf("Product not found!\n");
+                }
+                break;
+            case 3:
+                printf("Exiting program...\n");
+                break;
+            default:
+                printf("Invalid choice!\n");
+        }
+    } while(choice != 3);
+
+    return 0;
+}
